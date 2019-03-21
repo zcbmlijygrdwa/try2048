@@ -356,7 +356,7 @@ int main()
     {
         ti = randInt(n-1);
         tj = randInt(n-1);
-        v = randInt(1,n);
+        v = randInt(1)*2+2;
         cout<<"ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
         b.add(ti,tj,v);
     }
@@ -397,7 +397,7 @@ int main()
             }
             ti = randInt(n-1);
             tj = randInt(n-1);
-            v = randInt(1,n);
+            v = randInt(1)*2+2;
             //cout<<"ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
             b.add(ti,tj,v);
             b.show();
