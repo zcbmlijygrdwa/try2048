@@ -11,4 +11,10 @@ iostream
 -
 memory
 -
+stdlib.h
+-
+time.h
+-
+string
+-
 

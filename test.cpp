@@ -3,6 +3,7 @@
 #include <memory>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#include <string>
 
 using namespace std;
 
@@ -346,40 +347,62 @@ int main()
     b.show();
 
 
+    int ti = 0;
+    int tj = 0;
+    int v = 0;
 
 
     for(int i = 0 ; i < 3 ; i++)
     {
-        int ti = randInt(n-1);
-        int tj = randInt(n-1);
-        int v = randInt(1,n);
+        ti = randInt(n-1);
+        tj = randInt(n-1);
+        v = randInt(1,n);
         cout<<"ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
         b.add(ti,tj,v);
-        //b.add(randInt(n),randInt(n),randInt(n));
     }
-    //b.set(1,4,8);
-    //b.set(4,2,3);
-    //b.set(4,0,3);
-    //b.set(3,2,4);
-    //b.set(4,3,7);
-    //b.set(4,4,8);
-    //b.set(4,5,8);
-    //b.set(0,1,1);
-    //b.set(1,1,1);
-    //b.set(2,1,1);
-    //b.set(3,1,1);
-    //b.set(4,1,1);
-    //b.set(5,1,1);
     b.show();
+    string mystring = "";
+    for(int i = 0 ; i < 50 ; i++)
+    {
+        cout<<"Please enter move:"<<endl;
 
-    //b.moveHL();
-    //b.show();
-
-    //b.moveHR();
-    //b.show();
-
-    b.moveVD();
-    b.show();
+        cin>>mystring;
+        if(mystring.length()!=1)
+        {
+            cout<<"Invalid input!"<<endl;
+        }
+        else
+        {
+            cout<<"your input is: "<<mystring<<endl;
+            if(mystring[0]=='a')
+            {
+                b.moveHL();
+            }
+            else if(mystring[0]=='d')
+            {
+                b.moveHR();
+            }
+            else if(mystring[0]=='w')
+            {
+                b.moveVU();
+            }
+            else if(mystring[0]=='s')
+            {
+                b.moveVD();
+            }
+            else
+            {
+                cout<<"Invalid input!"<<endl;
+                continue;
+            }
+            ti = randInt(n-1);
+            tj = randInt(n-1);
+            v = randInt(1,n);
+            //cout<<"ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
+            b.add(ti,tj,v);
+            b.show();
+        }
+    }
 
     return 0;
 }
