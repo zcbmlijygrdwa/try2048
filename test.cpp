@@ -81,8 +81,7 @@ class Board
             }
         }
 
-
-        void moveH(int d)
+        void moveHL()
         {
             int prev = -1;
             int writeIdx = 0;
@@ -138,6 +137,63 @@ class Board
             }
 
         }
+
+        void moveHR()
+        {
+            int prev = -1;
+            int writeIdx = 0;
+            int sum = 0;
+            for(int i = 0 ; i < n ; i++)
+            { 
+                prev = -1;  
+                sum = 0;
+                writeIdx = n-1;
+                for(int j = n-1; j >=0 ; j--)
+                {
+                    if(data[i][j]==0)
+                    {
+                        continue;
+                    }
+                    cout<<"data[i][j] = "<<data[i][j]<<endl;
+                    cout<<"prev = "<<prev<<endl;
+                    if(data[i][j]==prev)
+                    {
+                        sum+=prev;
+                        cout<<"sum = "<<sum<<endl;
+                    }
+                    else
+                    {
+                        if(prev!=-1)
+                        {
+                            cout<<"write at "<<writeIdx<<endl;
+                            cout<<"sum ="<<sum<<endl;
+                            data[i][writeIdx] = sum;
+                            writeIdx--;
+                        } 
+                        prev = data[i][j];
+                        cout<<"new prev = "<<prev<<endl;
+                        sum = prev;
+                    } 
+                }
+                if(prev!=-1)
+                {
+                    if(sum==0)
+                    {
+                        data[i][writeIdx] = prev;
+                    }
+                    else
+                    {
+                        cout<<"write idx "<<writeIdx<<", sum = "<<sum<<endl;
+                        data[i][writeIdx] = sum;
+                        for(int j = writeIdx-1; j >=0 ; j--)
+                        {
+                            data[i][j] = 0;
+                        }
+                    }
+                } 
+            }
+
+        }
 };
 
 
@@ -151,7 +207,7 @@ int main()
 
     b.set(1,2,4);
     b.set(1,4,4);
-    b.set(4,2,6);
+    b.set(4,2,3);
     b.set(4,0,3);
     b.set(3,2,4);
     b.set(4,3,7);
@@ -159,7 +215,10 @@ int main()
     b.set(4,5,8);
     b.show();
 
-    b.moveH(0);
+    b.moveHL();
+    b.show();
+
+    b.moveHR();
     b.show();
 
     return 0;
