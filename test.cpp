@@ -69,6 +69,7 @@ class Board
                     if(data[i][j]==prev)
                     {
                         sum+=prev;
+                        cout<<"sum = "<<sum<<endl;
                     }
                     else
                     {
@@ -92,10 +93,11 @@ class Board
                     }
                     else
                     {
+                        cout<<"write idx "<<writeIdx<<", sum = "<<sum<<endl;
                         data[i][writeIdx] = sum;
-                        for(int i = writeIdx+1; i < n ; i++)
+                        for(int j = writeIdx+1; j < n ; j++)
                         {
-                            data[i][writeIdx] = 0;
+                            data[i][j] = 0;
                         }
                     }
                 } 
@@ -115,10 +117,14 @@ int main()
 
     b.set(1,2,4);
     b.set(1,4,4);
-
+    b.set(4,2,6);
+    b.set(3,2,4);
+    b.set(4,3,7);
     b.show();
+
     b.moveH(0);
     b.show();
+
     return 0;
 }
 
