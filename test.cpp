@@ -40,13 +40,41 @@ class Board
             {
                 for(int j = 0 ; j < n ; j++)
                 {
+                    int maxV = 0;
+                    for(int ii = 0 ; ii < n ; ii++)
+                    {
+                        maxV = max(maxV,data[ii][j]);
+                    }
+
+                    uint digits = 0;
+                    while(maxV>0)
+                    {
+                        maxV/=10;
+                        digits++;
+                    }
+
+                    // cout<<"digits = "<<digits<<endl;
+
                     if(data[i][j]==0)
                     {
-                        cout<<"[ ]";
+                        cout<<"[";
+                        for(int d = 0 ; d < digits ; d++)
+                            cout<<" ";
+                        cout<<"]";
                     }
                     else
                     {
-                        cout<<"["<<data[i][j]<<"]";
+                        int cur = data[i][j];
+                        while(cur>0)
+                        {
+                            cur/=10;
+                            digits--;
+                        }
+                        cout<<"[";
+                        for(int d = 0 ; d < digits ; d++)
+                            cout<<" ";
+                        cout<<data[i][j];
+                        cout<<"]";
                     }
                 }
                 cout<<endl;
@@ -124,8 +152,11 @@ int main()
     b.set(1,2,4);
     b.set(1,4,4);
     b.set(4,2,6);
+    b.set(4,0,3);
     b.set(3,2,4);
     b.set(4,3,7);
+    b.set(4,4,8);
+    b.set(4,5,8);
     b.show();
 
     b.moveH(0);
