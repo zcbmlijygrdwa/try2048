@@ -141,7 +141,7 @@ class Board
         void moveHR()
         {
             int prev = -1;
-            int writeIdx = 0;
+            int writeIdx = n-1;
             int sum = 0;
             for(int i = 0 ; i < n ; i++)
             { 
@@ -194,6 +194,120 @@ class Board
             }
 
         }
+
+        void moveVU()
+        {
+            int prev = -1;
+            int writeIdx = 0;
+            int sum = 0;
+            for(int j = 0 ; j < n ; j++)
+            { 
+                prev = -1;  
+                sum = 0;
+                writeIdx = 0;
+                for(int i = 0 ; i < n ; i++)
+                {
+                    if(data[i][j]==0)
+                    {
+                        continue;
+                    }
+                    cout<<"data[i][j] = "<<data[i][j]<<endl;
+                    cout<<"prev = "<<prev<<endl;
+                    if(data[i][j]==prev)
+                    {
+                        sum+=prev;
+                        cout<<"sum = "<<sum<<endl;
+                    }
+                    else
+                    {
+                        if(prev!=-1)
+                        {
+                            cout<<"write at "<<writeIdx<<endl;
+                            cout<<"sum ="<<sum<<endl;
+                            data[writeIdx][j] = sum;
+                            writeIdx++;
+                        } 
+                        prev = data[i][j];
+                        cout<<"new prev = "<<prev<<endl;
+                        sum = prev;
+                    } 
+                }
+                if(prev!=-1)
+                {
+                    if(sum==0)
+                    {
+                        data[writeIdx][j] = prev;
+                    }
+                    else
+                    {
+                        cout<<"write idx "<<writeIdx<<", sum = "<<sum<<endl;
+                        data[writeIdx][j] = sum;
+                        for(int i = writeIdx+1; i < n ; i++)
+                        {
+                            data[i][j] = 0;
+                        }
+                    }
+                } 
+            }
+
+        }
+        
+        void moveVD()
+        {
+            int prev = -1;
+            int writeIdx = n-1;
+            int sum = 0;
+            for(int j = 0 ; j <n ; j++)
+            { 
+                prev = -1;  
+                sum = 0;
+                writeIdx = n-1;
+                for(int i = n-1 ; i >= 0 ; i--)
+                {
+                    if(data[i][j]==0)
+                    {
+                        continue;
+                    }
+                    cout<<"data[i][j] = "<<data[i][j]<<endl;
+                    cout<<"prev = "<<prev<<endl;
+                    if(data[i][j]==prev)
+                    {
+                        sum+=prev;
+                        cout<<"sum = "<<sum<<endl;
+                    }
+                    else
+                    {
+                        if(prev!=-1)
+                        {
+                            cout<<"write at "<<writeIdx<<endl;
+                            cout<<"sum ="<<sum<<endl;
+                            data[writeIdx][j] = sum;
+                            writeIdx--;
+                        } 
+                        prev = data[i][j];
+                        cout<<"new prev = "<<prev<<endl;
+                        sum = prev;
+                    } 
+                }
+                if(prev!=-1)
+                {
+                    if(sum==0)
+                    {
+                        data[writeIdx][j] = prev;
+                    }
+                    else
+                    {
+                        cout<<"write idx "<<writeIdx<<", sum = "<<sum<<endl;
+                        data[writeIdx][j] = sum;
+                        for(int i = writeIdx-1; i >=0 ; i--)
+                        {
+                            data[i][j] = 0;
+                        }
+                    }
+                } 
+            }
+
+        }
 };
 
 
@@ -205,20 +319,29 @@ int main()
 
     b.show();
 
-    b.set(1,2,4);
-    b.set(1,4,4);
+    b.set(1,2,8);
+    b.set(1,4,8);
     b.set(4,2,3);
     b.set(4,0,3);
     b.set(3,2,4);
     b.set(4,3,7);
     b.set(4,4,8);
     b.set(4,5,8);
+    b.set(0,1,1);
+    b.set(1,1,1);
+    b.set(2,1,1);
+    b.set(3,1,1);
+    b.set(4,1,1);
+    b.set(5,1,1);
     b.show();
 
-    b.moveHL();
-    b.show();
+    //b.moveHL();
+    //b.show();
 
-    b.moveHR();
+    //b.moveHR();
+    //b.show();
+    
+    b.moveVD();
     b.show();
 
     return 0;
