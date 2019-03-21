@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include <memory>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 
 using namespace std;
 
@@ -29,9 +31,19 @@ class Board
             {
                 data[i][j] = val;
             }
-
         }   
 
+        void add(int i, int j, int val)
+        {
+            if(val<=0)
+            {
+                cout<<"invalid value"<<endl;
+            }
+            else
+            {
+                data[i][j] += val;
+            }
+        }   
 
         void show()
         {
@@ -251,7 +263,7 @@ class Board
             }
 
         }
-        
+
         void moveVD()
         {
             int prev = -1;
@@ -312,27 +324,52 @@ class Board
 
 
 
+//random int in range [a,b]
+int randInt(int a, int b)
+{
+    return rand() % (b-1+a) + a;
+}
+
+//random int in range [0,b]
+int randInt(int b)
+{
+    return rand() % (b+1);
+}
+
 int main()
 {
-
-    Board b = Board(6);
+    /* initialize random seed: */
+    srand (time(NULL));
+    int n = 6;
+    Board b = Board(n);
 
     b.show();
 
-    b.set(1,2,8);
-    b.set(1,4,8);
-    b.set(4,2,3);
-    b.set(4,0,3);
-    b.set(3,2,4);
-    b.set(4,3,7);
-    b.set(4,4,8);
-    b.set(4,5,8);
-    b.set(0,1,1);
-    b.set(1,1,1);
-    b.set(2,1,1);
-    b.set(3,1,1);
-    b.set(4,1,1);
-    b.set(5,1,1);
+
+
+
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        int ti = randInt(n-1);
+        int tj = randInt(n-1);
+        int v = randInt(1,n);
+        cout<<"ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
+        b.add(ti,tj,v);
+        //b.add(randInt(n),randInt(n),randInt(n));
+    }
+    //b.set(1,4,8);
+    //b.set(4,2,3);
+    //b.set(4,0,3);
+    //b.set(3,2,4);
+    //b.set(4,3,7);
+    //b.set(4,4,8);
+    //b.set(4,5,8);
+    //b.set(0,1,1);
+    //b.set(1,1,1);
+    //b.set(2,1,1);
+    //b.set(3,1,1);
+    //b.set(4,1,1);
+    //b.set(5,1,1);
     b.show();
 
     //b.moveHL();
@@ -340,7 +377,7 @@ int main()
 
     //b.moveHR();
     //b.show();
-    
+
     b.moveVD();
     b.show();
 
