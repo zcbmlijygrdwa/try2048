@@ -90,8 +90,15 @@ int main()
             }
             ti = randInt(n-1);
             tj = randInt(n-1);
-            v = randInt(1)*2+2;
-            //cout<<"ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
+            v = 2; //randInt(1)*2+2;
+            cout<<"try: ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
+            while(b.hasValue(ti,tj))
+            {
+                ti = randInt(n-1);
+                tj = randInt(n-1);
+                v = 2; //randInt(1)*2+2;
+                cout<<"try: ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
+            }
             b.add(ti,tj,v);
             b.show();
         }

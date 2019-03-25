@@ -5,8 +5,9 @@
 
 class Board
 {
-    public:
+    private:
         int** data;
+    public:
         int n;
         Board(int n)
         {
@@ -14,6 +15,25 @@ class Board
             data = (int**)calloc(n,sizeof(int*));
             for(int i = 0 ; i < n ; i++)
                 data[i] = (int*)calloc(n,sizeof(int));
+        }
+
+        ~Board()
+        {
+            for(int i = 0 ; i < n ; i++)
+            {
+                std::cout<<"freeing data["<<i<<"]..."<<std::endl;
+                free(data[i]);
+            }
+            std::cout<<"freeing data..."<<std::endl;
+            free(data);
+        }
+
+        bool hasValue(int i, int j)
+        {
+            if(data[i][j]!=0)
+                return true;
+            else
+                return false;
         }
 
         void set(int i, int j, int val)
