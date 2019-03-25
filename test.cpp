@@ -1,4 +1,13 @@
 
+
+
+// TODO:
+
+// need a pool to track which spots can add a new number
+
+// need to change adding process, no more than two numbers can be added.
+
+
 #include <iostream>
 #include <memory>
 #include <stdlib.h>     /* srand, rand */
