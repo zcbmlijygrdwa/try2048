@@ -160,10 +160,10 @@ class Board
                 {
                     std::cout<<"write idx "<<writeIdx<<", prev = "<<prev<<std::endl;
                     data[i][writeIdx] = prev; 
-                    for(int j = writeIdx+1; j < n ; j++)
-                    {
-                        data[i][j] = 0;
-                    }
+                }
+                for(int j = writeIdx+1; j < n ; j++)
+                {
+                    data[i][j] = 0;
                 }
             }
         }
@@ -208,10 +208,10 @@ class Board
                 {
                     std::cout<<"write idx "<<writeIdx<<", prev = "<<prev<<std::endl;
                     data[i][writeIdx] = prev;
-                    for(int j = writeIdx-1; j >=0 ; j--)
-                    {
-                        data[i][j] = 0;
-                    }
+                }
+                for(int j = writeIdx-1; j >=0 ; j--)
+                {
+                    data[i][j] = 0;
                 }
             }
 
@@ -256,10 +256,10 @@ class Board
                 {
                     std::cout<<"write idx "<<writeIdx<<", prev = "<<prev<<std::endl;
                     data[writeIdx][j] = prev;
-                    for(int i = writeIdx+1; i < n ; i++)
-                    {
-                        data[i][j] = 0;
-                    }
+                }
+                for(int i = writeIdx+1; i < n ; i++)
+                {
+                    data[i][j] = 0;
                 }
             }
 
@@ -303,10 +303,10 @@ class Board
                 {
                     data[writeIdx][j] = prev;
                     std::cout<<"write idx "<<writeIdx<<", prev = "<<prev<<std::endl;
-                    for(int i = writeIdx-1; i >=0 ; i--)
-                    {
-                        data[i][j] = 0;
-                    }
+                }
+                for(int i = writeIdx-1; i >=0 ; i--)
+                {
+                    data[i][j] = 0;
                 }
             }
 

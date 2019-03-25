@@ -55,7 +55,7 @@ int main()
     }
     b.show();
     string mystring = "";
-    for(int i = 0 ; i < 50 ; i++)
+    for(int i = 0 ; i < 500 ; i++)
     {
         cout<<"Please enter move:"<<endl;
 
@@ -88,6 +88,11 @@ int main()
                 cout<<"Invalid input!"<<endl;
                 continue;
             }
+
+            b.show();
+
+            cout<<"add new cell!"<<endl;
+
             ti = randInt(n-1);
             tj = randInt(n-1);
             v = 2; //randInt(1)*2+2;

@@ -64,15 +64,15 @@ int main()
     b.show();
 
     b.clear();
-    b.add(0,0,2);
-    b.add(1,3,4);
-    b.add(2,0,4);
-    b.add(3,0,2);
-    b.add(4,0,8);
-    b.add(5,0,16); b.add(5,1,8); b.add(5,2,8); b.add(5,3,4);
+    b.add(0,0,1);
+    b.add(1,0,0);
+    b.add(2,0,0);
+    b.add(3,0,0);
+    b.add(4,0,0);
+    b.add(5,0,1); b.add(5,1,8); b.add(5,2,8); b.add(5,3,4);
     b.show();
 
-    a(&b);
+    s(&b);
 
     return 0;
 }
