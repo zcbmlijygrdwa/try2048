@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -Wall -O2 -march=native -O3 -DNDEBUG   CMakeFiles/Board_test.dir/Board_test.cpp.o  -o Board_test -rdynamic 

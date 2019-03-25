@@ -123,6 +123,86 @@ test/fast:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
 
+#=============================================================================
+# Target rules for targets named Board_test
+
+# Build rule for target.
+Board_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Board_test
+.PHONY : Board_test
+
+# fast build rule for target.
+Board_test/fast:
+	$(MAKE) -f CMakeFiles/Board_test.dir/build.make CMakeFiles/Board_test.dir/build
+.PHONY : Board_test/fast
+
+#=============================================================================
+# Target rules for targets named easy_test
+
+# Build rule for target.
+easy_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 easy_test
+.PHONY : easy_test
+
+# fast build rule for target.
+easy_test/fast:
+	$(MAKE) -f CMakeFiles/easy_test.dir/build.make CMakeFiles/easy_test.dir/build
+.PHONY : easy_test/fast
+
+Board_test.o: Board_test.cpp.o
+
+.PHONY : Board_test.o
+
+# target to build an object file
+Board_test.cpp.o:
+	$(MAKE) -f CMakeFiles/Board_test.dir/build.make CMakeFiles/Board_test.dir/Board_test.cpp.o
+.PHONY : Board_test.cpp.o
+
+Board_test.i: Board_test.cpp.i
+
+.PHONY : Board_test.i
+
+# target to preprocess a source file
+Board_test.cpp.i:
+	$(MAKE) -f CMakeFiles/Board_test.dir/build.make CMakeFiles/Board_test.dir/Board_test.cpp.i
+.PHONY : Board_test.cpp.i
+
+Board_test.s: Board_test.cpp.s
+
+.PHONY : Board_test.s
+
+# target to generate assembly for a file
+Board_test.cpp.s:
+	$(MAKE) -f CMakeFiles/Board_test.dir/build.make CMakeFiles/Board_test.dir/Board_test.cpp.s
+.PHONY : Board_test.cpp.s
+
+easy_test.o: easy_test.cpp.o
+
+.PHONY : easy_test.o
+
+# target to build an object file
+easy_test.cpp.o:
+	$(MAKE) -f CMakeFiles/easy_test.dir/build.make CMakeFiles/easy_test.dir/easy_test.cpp.o
+.PHONY : easy_test.cpp.o
+
+easy_test.i: easy_test.cpp.i
+
+.PHONY : easy_test.i
+
+# target to preprocess a source file
+easy_test.cpp.i:
+	$(MAKE) -f CMakeFiles/easy_test.dir/build.make CMakeFiles/easy_test.dir/easy_test.cpp.i
+.PHONY : easy_test.cpp.i
+
+easy_test.s: easy_test.cpp.s
+
+.PHONY : easy_test.s
+
+# target to generate assembly for a file
+easy_test.cpp.s:
+	$(MAKE) -f CMakeFiles/easy_test.dir/build.make CMakeFiles/easy_test.dir/easy_test.cpp.s
+.PHONY : easy_test.cpp.s
+
 test.o: test.cpp.o
 
 .PHONY : test.o
@@ -157,8 +237,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... Board_test"
+	@echo "... easy_test"
+	@echo "... rebuild_cache"
+	@echo "... Board_test.o"
+	@echo "... Board_test.i"
+	@echo "... Board_test.s"
+	@echo "... easy_test.o"
+	@echo "... easy_test.i"
+	@echo "... easy_test.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"

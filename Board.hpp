@@ -40,6 +40,18 @@ class Board
             }
         }
 
+        void clear()
+        {
+            for(int i = 0 ; i < n ; i++)
+            {
+                for(int j = 0 ; j < n ; j++)
+                {
+                    data[i][j] = 0;
+                }
+            }
+            std::cout<<"Board cleared!"<<std::endl;
+        }
+
         void show()
         {
             std::cout<<"------------------"<<std::endl;
@@ -140,11 +152,9 @@ class Board
         {
             int prev = -1;
             int writeIdx = n-1;
-            int sum = 0;
             for(int i = 0 ; i < n ; i++)
             {
                 prev = -1;
-                sum = 0;
                 writeIdx = n-1;
                 for(int j = n-1; j >=0 ; j--)
                 {
@@ -156,37 +166,31 @@ class Board
                     std::cout<<"prev = "<<prev<<std::endl;
                     if(data[i][j]==prev)
                     {
-                        sum+=prev;
-                        std::cout<<"sum = "<<sum<<std::endl;
+
+                        std::cout<<"writing to data["<<i<<"]["<<writeIdx<<"]:"<<(2*prev)<<std::endl;
+                        data[i][writeIdx] = 2*prev;
+                        writeIdx--;
+                        prev = -1;
                     }
                     else
                     {
                         if(prev!=-1)
                         {
                             std::cout<<"write at "<<writeIdx<<std::endl;
-                            std::cout<<"sum ="<<sum<<std::endl;
-                            data[i][writeIdx] = sum;
+                            data[i][writeIdx] = prev;
                             writeIdx--;
                         }
                         prev = data[i][j];
                         std::cout<<"new prev = "<<prev<<std::endl;
-                        sum = prev;
                     }
                 }
                 if(prev!=-1)
                 {
-                    if(sum==0)
+                    std::cout<<"write idx "<<writeIdx<<", prev = "<<prev<<std::endl;
+                    data[i][writeIdx] = prev;
+                    for(int j = writeIdx-1; j >=0 ; j--)
                     {
-                        data[i][writeIdx] = prev;
-                    }
-                    else
-                    {
-                        std::cout<<"write idx "<<writeIdx<<", sum = "<<sum<<std::endl;
-                        data[i][writeIdx] = sum;
-                        for(int j = writeIdx-1; j >=0 ; j--)
-                        {
-                            data[i][j] = 0;
-                        }
+                        data[i][j] = 0;
                     }
                 }
             }
@@ -197,11 +201,9 @@ class Board
         {
             int prev = -1;
             int writeIdx = 0;
-            int sum = 0;
             for(int j = 0 ; j < n ; j++)
             {
                 prev = -1;
-                sum = 0;
                 writeIdx = 0;
                 for(int i = 0 ; i < n ; i++)
                 {
@@ -213,37 +215,30 @@ class Board
                     std::cout<<"prev = "<<prev<<std::endl;
                     if(data[i][j]==prev)
                     {
-                        sum+=prev;
-                        std::cout<<"sum = "<<sum<<std::endl;
+                        std::cout<<"writing to data["<<writeIdx<<"]["<<j<<"]:"<<(2*prev)<<std::endl;
+                        data[writeIdx][j] = 2*prev;
+                        writeIdx++;
+                        prev = -1;
                     }
                     else
                     {
                         if(prev!=-1)
                         {
                             std::cout<<"write at "<<writeIdx<<std::endl;
-                            std::cout<<"sum ="<<sum<<std::endl;
-                            data[writeIdx][j] = sum;
+                            data[writeIdx][j] = prev;
                             writeIdx++;
                         }
                         prev = data[i][j];
                         std::cout<<"new prev = "<<prev<<std::endl;
-                        sum = prev;
                     }
                 }
                 if(prev!=-1)
                 {
-                    if(sum==0)
+                    std::cout<<"write idx "<<writeIdx<<", prev = "<<prev<<std::endl;
+                    data[writeIdx][j] = prev;
+                    for(int i = writeIdx+1; i < n ; i++)
                     {
-                        data[writeIdx][j] = prev;
-                    }
-                    else
-                    {
-                        std::cout<<"write idx "<<writeIdx<<", sum = "<<sum<<std::endl;
-                        data[writeIdx][j] = sum;
-                        for(int i = writeIdx+1; i < n ; i++)
-                        {
-                            data[i][j] = 0;
-                        }
+                        data[i][j] = 0;
                     }
                 }
             }
@@ -253,11 +248,9 @@ class Board
         {
             int prev = -1;
             int writeIdx = n-1;
-            int sum = 0;
             for(int j = 0 ; j <n ; j++)
             {
                 prev = -1;
-                sum = 0;
                 writeIdx = n-1;
                 for(int i = n-1 ; i >= 0 ; i--)
                 {
@@ -269,37 +262,30 @@ class Board
                     std::cout<<"prev = "<<prev<<std::endl;
                     if(data[i][j]==prev)
                     {
-                        sum+=prev;
-                        std::cout<<"sum = "<<sum<<std::endl;
+                        std::cout<<"writing to data["<<writeIdx<<"]["<<j<<"]:"<<(2*prev)<<std::endl;
+                        data[writeIdx][j] = 2*prev;
+                        writeIdx--;
+                        prev = -1;
                     }
                     else
                     {
                         if(prev!=-1)
                         {
                             std::cout<<"write at "<<writeIdx<<std::endl;
-                            std::cout<<"sum ="<<sum<<std::endl;
-                            data[writeIdx][j] = sum;
+                            data[writeIdx][j] = prev;
                             writeIdx--;
                         }
                         prev = data[i][j];
                         std::cout<<"new prev = "<<prev<<std::endl;
-                        sum = prev;
                     }
                 }
                 if(prev!=-1)
                 {
-                    if(sum==0)
+                    data[writeIdx][j] = prev;
+                    std::cout<<"write idx "<<writeIdx<<", prev = "<<prev<<std::endl;
+                    for(int i = writeIdx-1; i >=0 ; i--)
                     {
-                        data[writeIdx][j] = prev;
-                    }
-                    else
-                    {
-                        std::cout<<"write idx "<<writeIdx<<", sum = "<<sum<<std::endl;
-                        data[writeIdx][j] = sum;
-                        for(int i = writeIdx-1; i >=0 ; i--)
-                        {
-                            data[i][j] = 0;
-                        }
+                        data[i][j] = 0;
                     }
                 }
             }

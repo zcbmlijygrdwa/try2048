@@ -18,8 +18,6 @@
 
 using namespace std;
 
-
-
 //random int in range [a,b]
 int randInt(int a, int b)
 {

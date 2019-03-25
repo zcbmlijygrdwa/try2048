@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/zhenyu/try2048/build
 CMakeFiles/test.dir/all:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhenyu/try2048/build/CMakeFiles --progress-num=1,2 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhenyu/try2048/build/CMakeFiles --progress-num=5,6 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Include target in all.
@@ -93,6 +93,80 @@ CMakeFiles/test.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/test.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Board_test.dir
+
+# All Build rule for target.
+CMakeFiles/Board_test.dir/all:
+	$(MAKE) -f CMakeFiles/Board_test.dir/build.make CMakeFiles/Board_test.dir/depend
+	$(MAKE) -f CMakeFiles/Board_test.dir/build.make CMakeFiles/Board_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhenyu/try2048/build/CMakeFiles --progress-num=1,2 "Built target Board_test"
+.PHONY : CMakeFiles/Board_test.dir/all
+
+# Include target in all.
+all: CMakeFiles/Board_test.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Board_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhenyu/try2048/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Board_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhenyu/try2048/build/CMakeFiles 0
+.PHONY : CMakeFiles/Board_test.dir/rule
+
+# Convenience name for target.
+Board_test: CMakeFiles/Board_test.dir/rule
+
+.PHONY : Board_test
+
+# clean rule for target.
+CMakeFiles/Board_test.dir/clean:
+	$(MAKE) -f CMakeFiles/Board_test.dir/build.make CMakeFiles/Board_test.dir/clean
+.PHONY : CMakeFiles/Board_test.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Board_test.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/easy_test.dir
+
+# All Build rule for target.
+CMakeFiles/easy_test.dir/all:
+	$(MAKE) -f CMakeFiles/easy_test.dir/build.make CMakeFiles/easy_test.dir/depend
+	$(MAKE) -f CMakeFiles/easy_test.dir/build.make CMakeFiles/easy_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhenyu/try2048/build/CMakeFiles --progress-num=3,4 "Built target easy_test"
+.PHONY : CMakeFiles/easy_test.dir/all
+
+# Include target in all.
+all: CMakeFiles/easy_test.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/easy_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhenyu/try2048/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/easy_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhenyu/try2048/build/CMakeFiles 0
+.PHONY : CMakeFiles/easy_test.dir/rule
+
+# Convenience name for target.
+easy_test: CMakeFiles/easy_test.dir/rule
+
+.PHONY : easy_test
+
+# clean rule for target.
+CMakeFiles/easy_test.dir/clean:
+	$(MAKE) -f CMakeFiles/easy_test.dir/build.make CMakeFiles/easy_test.dir/clean
+.PHONY : CMakeFiles/easy_test.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/easy_test.dir/clean
 
 .PHONY : clean
 
