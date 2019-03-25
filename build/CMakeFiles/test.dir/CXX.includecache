@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/zhenyu/try2048/Board.hpp
+iostream
+-
+
 /home/zhenyu/try2048/test.cpp
 iostream
 -
@@ -17,4 +21,6 @@ time.h
 -
 string
 -
+Board.hpp
+/home/zhenyu/try2048/Board.hpp
 
