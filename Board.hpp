@@ -72,28 +72,36 @@ class Board
             std::cout<<"Board cleared!"<<std::endl;
         }
 
-        void show()
+        void showWithNewCell(int ni, int nj)
         {
             std::cout<<"------------------"<<std::endl;
+            int* cell_len = (int*)calloc(n,sizeof(int));
+            int digits = 0;
+            for(int j = 0 ; j < n ; j++)
+            {
+                int maxV = 0;
+                for(int i = 0 ; i < n ; i++)
+                {
+                    maxV = std::max(maxV,data[i][j]);
+                }
+                digits = 0;
+                while(maxV>0)
+                {
+                    maxV/=10;
+                    digits++;
+                }
+
+                //std::cout<<"digits at col: "<<j<<" = "<<digits<<std::endl;
+                cell_len[j] = digits;
+            }
+
             for(int i = 0 ; i < n ; i++)
             {
                 for(int j = 0 ; j < n ; j++)
                 {
-                    int maxV = 0;
-                    for(int ii = 0 ; ii < n ; ii++)
-                    {
-                        maxV = std::max(maxV,data[ii][j]);
-                    }
-
-                    int digits = 0;
-                    while(maxV>0)
-                    {
-                        maxV/=10;
+                    digits = cell_len[j];
+                    if(j==nj)
                         digits++;
-                    }
-
-                    // std::cout<<"digits = "<<digits<<std::endl;
-
                     if(data[i][j]==0)
                     {
                         std::cout<<"[";
@@ -109,6 +117,67 @@ class Board
                             cur/=10;
                             digits--;
                         }
+
+                        std::cout<<"[";
+                        if(i==ni&&j==nj)
+                        {
+                            digits--;
+                            std::cout<<"*";
+                        }
+                        for(int d = 0 ; d < digits ; d++)
+                            std::cout<<" ";
+                        std::cout<<data[i][j];
+                        std::cout<<"]";
+                    }
+                }
+                std::cout<<std::endl;
+            }
+            free(cell_len);
+        }
+        void show()
+        {
+            std::cout<<"------------------"<<std::endl;
+            int* cell_len = (int*)calloc(n,sizeof(int));
+            int digits = 0;
+            for(int j = 0 ; j < n ; j++)
+            {
+                int maxV = 0;
+                for(int i = 0 ; i < n ; i++)
+                {
+                    maxV = std::max(maxV,data[i][j]);
+                }
+                digits = 0;
+                while(maxV>0)
+                {
+                    maxV/=10;
+                    digits++;
+                }
+
+                //std::cout<<"digits at col: "<<j<<" = "<<digits<<std::endl;
+                cell_len[j] = digits;
+            }
+
+            for(int i = 0 ; i < n ; i++)
+            {
+                for(int j = 0 ; j < n ; j++)
+                {
+                    digits = cell_len[j];
+                    if(data[i][j]==0)
+                    {
+                        std::cout<<"[";
+                        for(int d = 0 ; d < digits ; d++)
+                            std::cout<<" ";
+                        std::cout<<"]";
+                    }
+                    else
+                    {
+                        int cur = data[i][j];
+                        while(cur>0)
+                        {
+                            cur/=10;
+                            digits--;
+                        }
+
                         std::cout<<"[";
                         for(int d = 0 ; d < digits ; d++)
                             std::cout<<" ";
@@ -118,6 +187,7 @@ class Board
                 }
                 std::cout<<std::endl;
             }
+            free(cell_len);
         }
 
         void moveHL()

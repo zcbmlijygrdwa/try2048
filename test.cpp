@@ -91,7 +91,6 @@ int main()
 
             b.show();
 
-            cout<<"add new cell!"<<endl;
 
             ti = randInt(n-1);
             tj = randInt(n-1);
@@ -104,8 +103,10 @@ int main()
                 v = 2; //randInt(1)*2+2;
                 cout<<"try: ti = "<<ti<<", tj = "<<tj<<", v = "<<v<<endl;
             }
+            cout<<"new cell added!"<<endl;
             b.add(ti,tj,v);
-            b.show();
+            b.showWithNewCell(ti,tj);
+            //b.show();
         }
     }
 
