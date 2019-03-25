@@ -316,7 +316,7 @@ GFLAGS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgflags.so
 GFLAGS_NAMESPACE:STRING=google
 
 //The directory containing a CMake configuration file for OpenCV.
-OpenCV_DIR:PATH=/opt/ros/kinetic/share/OpenCV-3.3.1-dev
+OpenCV_DIR:PATH=OpenCV_DIR-NOTFOUND
 
 //Value Computed by CMake
 test_project_BINARY_DIR:STATIC=/home/zhenyu/try2048/build

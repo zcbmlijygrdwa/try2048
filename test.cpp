@@ -68,7 +68,7 @@ class Board
                         maxV = max(maxV,data[ii][j]);
                     }
 
-                    uint digits = 0;
+                    int digits = 0;
                     while(maxV>0)
                     {
                         maxV/=10;
