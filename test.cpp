@@ -105,8 +105,8 @@ int main()
             }
             cout<<"new cell added!"<<endl;
             b.add(ti,tj,v);
-            b.showWithNewCell(ti,tj);
-            //b.show();
+            //b.showWithNewCell(ti,tj);
+            b.show();
         }
     }
 
