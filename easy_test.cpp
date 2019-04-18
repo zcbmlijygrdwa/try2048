@@ -57,19 +57,24 @@ int main()
 {
     /* initialize random seed: */
     srand (time(NULL));
-    int n = 6;
+    int n = 4;
     Board b = Board(n);
 
     cout<<"after init:"<<endl;
     b.show();
 
     b.clear();
-    b.add(0,0,1);
-    b.add(1,0,0);
-    b.add(2,0,0);
-    b.add(3,0,0);
-    b.add(4,0,0);
-    b.add(5,0,1); b.add(5,1,8); b.add(5,2,8); b.add(5,3,4);
+    b.add(0,0,2);
+    b.add(1,0,4);
+    b.add(2,0,16);
+    b.add(2,1,12);
+    b.add(2,3,4);
+
+    b.add(3,0,2);
+    b.add(3,1,4);
+    b.add(3,2,32);
+    b.add(3,3,16);
+
     b.show();
 
     s(&b);
